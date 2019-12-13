@@ -1,7 +1,7 @@
 
 
 
-pipiline{
+pipeline{
     agent any
     environment {Prova = "$WORKSPACE/Prova-N2-2_app-fast"
     }
