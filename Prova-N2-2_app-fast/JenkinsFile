@@ -1,12 +1,4 @@
-agent any
-archiveArtifacts artifacts: '', fingerprint: , allowEmptyArchive:
-echo ‘’
-environment {}
-dir() {}
-pipeline {}
-stages {}
-stage() {}
-steps {}
+
 
 
 pipiline{
