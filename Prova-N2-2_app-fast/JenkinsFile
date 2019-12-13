@@ -3,7 +3,7 @@
 
 pipiline{
     agent any
-    environment {Prova = "$WORKSPACE/Prova-N2-2_app-fast"$WORKSPACE/Prova-N2-2_app-fast
+    environment {Prova = "$WORKSPACE/Prova-N2-2_app-fast"
     }
 stages {
          stage('Preparando workpace') {
