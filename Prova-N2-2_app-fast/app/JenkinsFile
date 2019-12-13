@@ -11,7 +11,7 @@ steps {}
 
 pipiline{
     agent any
-    environment {Prova = "$WORKSPACE/<Prova-N2-2_app-fast"$WORKSPACE/Prova-N2-2_app-fast
+    environment {Prova = "$WORKSPACE/Prova-N2-2_app-fast"$WORKSPACE/Prova-N2-2_app-fast
     }
 stages {
          stage('Preparando workpace') {
@@ -32,5 +32,40 @@ stages {
                 }
             }
         }
+         stage('build do apk') {
+                    steps {
+                        echo 'build do apk'
+                        dir("$Prova") {
+                            sh 'cd $WORKSPACE/Prova/'
+                            sh './gradlew assembleRelease'
+                        }
+                    }
+                }
+                stage('arquivar apk') {
+                            steps {
+                                echo 'arquivar apk'
+                                archiveArtifacts artifacts: '**/app-release-unsigned.apk', fingerprint:true , allowEmptyArchive:false
+                                echo 'apk arquivado'
+                            }
+                        }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
