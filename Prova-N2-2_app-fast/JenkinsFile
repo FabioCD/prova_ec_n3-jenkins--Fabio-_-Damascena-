@@ -17,7 +17,7 @@ stages {
          }
  stage('testes de unidade') {
             steps {
-                echo 'testes de unidade'
+                echo 'testes de uni'
                 dir("$Prova") {
                     sh 'cd $WORKSPACE/Prova/'
                     sh './gradlew test'
@@ -26,7 +26,7 @@ stages {
         }
          stage('build do apk') {
                     steps {
-                        echo 'build do apk'
+                        echo 'build '
                         dir("$Prova") {
                             sh 'cd $WORKSPACE/Prova/'
                             sh './gradlew assembleRelease'
@@ -35,9 +35,9 @@ stages {
                 }
                 stage('arquivar apk') {
                             steps {
-                                echo 'arquivar apk'
+                                echo 'arquivar '
                                 archiveArtifacts artifacts: '**/app-release-unsigned.apk', fingerprint:true , allowEmptyArchive:false
-                                echo 'apk arquivado'
+                                echo 'a arquivado'
                             }
                         }
 
