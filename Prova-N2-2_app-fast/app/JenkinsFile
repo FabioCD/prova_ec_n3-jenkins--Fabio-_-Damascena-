@@ -1,0 +1,35 @@
+agent any
+archiveArtifacts artifacts: '', fingerprint: , allowEmptyArchive:
+echo ‘’
+environment {}
+dir() {}
+pipeline {}
+stages {}
+stage() {}
+steps {}
+
+
+pipiline{
+    agent any
+    environment {Prova = "$WORKSPACE/<Prova-N2-2_app-fast"$WORKSPACE/Prova-N2-2_app-fast
+    }
+stages {
+         stage('Preparando workpace') {
+             steps {
+                 echo 'Preparando workpace'
+                 dir("$Prova") {
+                     sh 'gradle  wrapper'
+                 }
+             }
+         }
+         }
+ stage('testes de unidade') {
+            steps {
+                echo 'testes de unidade'
+                dir("$Prova") {
+                    sh 'cd $WORKSPACE/ProjetoIntegradorApp/'
+                    sh './gradlew test'
+                }
+            }
+        }
+}
